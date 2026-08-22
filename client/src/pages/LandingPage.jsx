@@ -818,82 +818,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* =================================================================== */}
-      {/* 6. SMART PLANNING SECTION */}
-      {/* =================================================================== */}
-      <section id="features" className="features-section">
-        <div className="landing-container">
-          <div className="section-header text-center">
-            <span className="section-eyebrow">Intelligent Features</span>
-            <h2 className="section-title">Everything You Need for a Perfect Journey</h2>
-            <p className="section-desc">
-              From real-time budget intelligence to automated route optimization and simulated scenario planning.
-            </p>
-          </div>
 
-          <div className="features-grid">
-            {/* Card 1: Smart Budget */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-emerald"></div>
-              <div className="feature-icon-box icon-emerald mb-2">
-                <Wallet size={22} />
-              </div>
-              <h3>Smart Budget</h3>
-              <p>Know where your money goes with automatic cost breakdowns and real-time over-budget warnings.</p>
-            </div>
-
-            {/* Card 2: Route Optimizer */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-blue"></div>
-              <div className="feature-icon-box icon-blue mb-2">
-                <Route size={22} />
-              </div>
-              <h3>Route Optimizer</h3>
-              <p>Reduce unnecessary travel with automated city sequencing and distance-matrix calculations.</p>
-            </div>
-
-            {/* Card 3: Trip Health */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-purple"></div>
-              <div className="feature-icon-box icon-purple mb-2">
-                <Activity size={22} />
-              </div>
-              <h3>Trip Health</h3>
-              <p>Understand how balanced your itinerary is across pace, transit fatigue, and activity density.</p>
-            </div>
-
-            {/* Card 4: Trip Simulator */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-orange"></div>
-              <div className="feature-icon-box icon-orange mb-2">
-                <SlidersHorizontal size={22} />
-              </div>
-              <h3>Trip Simulator</h3>
-              <p>Explore "What If?" scenarios like adding days or switching transport before locking in your plan.</p>
-            </div>
-
-            {/* Card 5: Smart Recommendations */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-amber"></div>
-              <div className="feature-icon-box icon-amber mb-2">
-                <Sparkles size={22} />
-              </div>
-              <h3>Smart Recommendations</h3>
-              <p>Discover hidden gems, local eateries, and experiences tailored directly to your travel personality.</p>
-            </div>
-
-            {/* Card 6: Free-Time Intelligence */}
-            <div className="feature-card" onClick={handleStartPlanning}>
-              <div className="card-accent-strip banner-rose"></div>
-              <div className="feature-icon-box icon-rose mb-2">
-                <Clock size={22} />
-              </div>
-              <h3>Free-Time Intelligence</h3>
-              <p>Make the most of your journey with built-in buffer slots so you explore without overplanning.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* =================================================================== */}
       {/* 7. "BUILD YOUR PERFECT TRIP" (STEP-BY-STEP WORKFLOW) */}
@@ -1132,92 +1057,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* =================================================================== */}
-      {/* 10. TRIP SIMULATOR SECTION */}
-      {/* =================================================================== */}
-      <section id="simulator" className="simulator-section">
-        <div className="landing-container">
-          <div className="sim-box card-glass">
-            <div className="sim-header">
-              <div>
-                <span className="section-eyebrow">Interactive What-If Builder</span>
-                <h2 className="sim-title">What If You Changed the Plan?</h2>
-                <p className="sim-desc">
-                  Toggle hypothetical scenario variables below to instantly simulate the impact on cost, transit time, and trip score!
-                </p>
-              </div>
 
-              <button
-                type="button"
-                onClick={handleStartPlanning}
-                className="btn btn-primary btn-lg"
-              >
-                <SlidersHorizontal size={18} />
-                <span>Simulate Your Trip</span>
-              </button>
-            </div>
-
-            {/* Scenario Toggles */}
-            <div className="sim-controls-grid">
-              <button
-                type="button"
-                onClick={() => setSimState({ ...simState, extraDay: !simState.extraDay })}
-                className={`sim-toggle-btn ${simState.extraDay ? 'active' : ''}`}
-              >
-                <span>+1 Day</span>
-                <small>{simState.extraDay ? 'Added' : 'Click to add'}</small>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setSimState({ ...simState, lowerBudget: !simState.lowerBudget })}
-                className={`sim-toggle-btn ${simState.lowerBudget ? 'active' : ''}`}
-              >
-                <span>-₹5,000 Budget</span>
-                <small>{simState.lowerBudget ? 'Applied' : 'Click to trim'}</small>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setSimState({ ...simState, extraCity: !simState.extraCity })}
-                className={`sim-toggle-btn ${simState.extraCity ? 'active' : ''}`}
-              >
-                <span>+1 Destination (Kochi)</span>
-                <small>{simState.extraCity ? 'Added' : 'Click to add'}</small>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setSimState({ ...simState, fastFlight: !simState.fastFlight })}
-                className={`sim-toggle-btn ${simState.fastFlight ? 'active' : ''}`}
-              >
-                <span>Change Transport (Flight)</span>
-                <small>{simState.fastFlight ? 'Flight selected' : 'Train selected'}</small>
-              </button>
-            </div>
-
-            {/* Live Simulated Result Bar */}
-            <div className="sim-result-bar">
-              <div className="sim-res-col">
-                <span className="sim-res-lbl">Simulated Budget</span>
-                <span className="sim-res-val text-primary">₹{simResult.budget.toLocaleString()}</span>
-              </div>
-              <div className="sim-res-col">
-                <span className="sim-res-lbl">Trip Duration</span>
-                <span className="sim-res-val">{simResult.durationDays} Days</span>
-              </div>
-              <div className="sim-res-col">
-                <span className="sim-res-lbl">Est. Transit Time</span>
-                <span className="sim-res-val">{simResult.travelHours} Hours</span>
-              </div>
-              <div className="sim-res-col">
-                <span className="sim-res-lbl">Simulated Score</span>
-                <span className="sim-res-val text-success">{simResult.score}/100</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* =================================================================== */}
       {/* 11. COLLABORATIVE TRAVEL SECTION */}
@@ -1432,83 +1272,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* =================================================================== */}
-      {/* 14. TRIP SCORE SECTION */}
-      {/* =================================================================== */}
-      <section className="trip-score-section">
-        <div className="landing-container">
-          <div className="score-showcase-card card-glass">
-            <div className="score-grid">
-              {/* Left Score Ring */}
-              <div className="score-circle-wrapper">
-                <div className="score-circle-gauge">
-                  <span className="score-big-num">91</span>
-                  <span className="score-out-of">/ 100</span>
-                </div>
-                <span className="score-badge-label">GlobeTrotter Trip Score</span>
-              </div>
 
-              {/* Right Score Breakdown */}
-              <div className="score-details-wrapper">
-                <span className="section-eyebrow eyebrow-amber">Quality Assessment</span>
-                <h2 className="score-headline">Know How Good Your Trip Really Is.</h2>
-
-                <div className="score-bars-list">
-                  <div className="score-bar-item">
-                    <div className="bar-header">
-                      <span>Budget Efficiency</span>
-                      <strong>94 / 100</strong>
-                    </div>
-                    <div className="bar-track">
-                      <div className="bar-fill" style={{ width: '94%', background: '#10b981' }}></div>
-                    </div>
-                  </div>
-
-                  <div className="score-bar-item">
-                    <div className="bar-header">
-                      <span>Route Efficiency</span>
-                      <strong>88 / 100</strong>
-                    </div>
-                    <div className="bar-track">
-                      <div className="bar-fill" style={{ width: '88%', background: '#0284c7' }}></div>
-                    </div>
-                  </div>
-
-                  <div className="score-bar-item">
-                    <div className="bar-header">
-                      <span>Time & Pacing Balance</span>
-                      <strong>92 / 100</strong>
-                    </div>
-                    <div className="bar-track">
-                      <div className="bar-fill" style={{ width: '92%', background: '#8b5cf6' }}></div>
-                    </div>
-                  </div>
-
-                  <div className="score-bar-item">
-                    <div className="bar-header">
-                      <span>Activity Diversity</span>
-                      <strong>90 / 100</strong>
-                    </div>
-                    <div className="bar-track">
-                      <div className="bar-fill" style={{ width: '90%', background: '#f59e0b' }}></div>
-                    </div>
-                  </div>
-
-                  <div className="score-bar-item">
-                    <div className="bar-header">
-                      <span>Personal Style Match</span>
-                      <strong>93 / 100</strong>
-                    </div>
-                    <div className="bar-track">
-                      <div className="bar-fill" style={{ width: '93%', background: '#ec4899' }}></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* =================================================================== */}
       {/* 15. FEATURED DASHBOARD PREVIEW */}
@@ -1627,42 +1391,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* =================================================================== */}
-      {/* 16. FINAL CTA */}
-      {/* =================================================================== */}
-      <section className="final-cta-section">
-        <div className="landing-container">
-          <div className="final-cta-box">
-            <div className="cta-content text-center">
-              <span className="section-eyebrow eyebrow-light">Start Exploring Today</span>
-              <h2 className="final-cta-title">Your Next Adventure Starts Here.</h2>
-              <p className="final-cta-subtext">
-                Turn a destination into a journey, and a journey into a memory.
-              </p>
 
-              <div className="final-cta-buttons">
-                <button
-                  type="button"
-                  onClick={handleStartPlanning}
-                  className="btn btn-primary btn-lg final-btn-primary"
-                >
-                  <Sparkles size={18} />
-                  <span>Start Planning Your Trip</span>
-                  <ArrowRight size={18} />
-                </button>
-
-                <a
-                  href="#explore"
-                  className="btn btn-secondary btn-lg final-btn-secondary"
-                >
-                  <Compass size={18} />
-                  <span>Explore Inspiration</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Embedded Landing Page Scoped CSS */}
       <style>{`
